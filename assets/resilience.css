@@ -118,6 +118,23 @@
   }
   #topBtn.show{opacity:1;pointer-events:auto;transform:translateY(0);}
   #topBtn:hover{background:#008a88;}
+
+  .coming-soon {
+    text-align: center;
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem 1rem;
+    margin: 2rem 0;
+    font-size: 1rem;
+    color: var(--muted);
+  }
+  .coming-soon strong {
+    color: var(--accent);
+    display: block;
+    margin-top: 0.5rem;
+  }
+  
   
   footer{
     text-align:center;
