@@ -111,8 +111,8 @@ blockquote{
   font-style:italic;
 }
 
-.fade-in{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease;}
-.fade-in.visible{opacity:1;transform:translateY(0);}
+//.fade-in{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease;}
+//.fade-in.visible{opacity:1;transform:translateY(0);}
 
 #topBtn{
   position:fixed;bottom:24px;right:24px;
@@ -268,3 +268,10 @@ footer{
   text-align: center;
   padding: 1rem;
 }
+
+main {
+  flex: 1;
+  display: block;
+}
+
+//.fade-in { opacity: 1 !important; transform: none !important; }
