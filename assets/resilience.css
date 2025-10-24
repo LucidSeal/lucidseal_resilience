@@ -1,234 +1,160 @@
 :root {
-  --accent: #00A19E;
-  --ink: #0E1E1E;
-  --muted: #5F7070;
-  --panel: #F7F9FA;
-  --radius: 12px;
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --font: "Inter", "Space Grotesk", system-ui, sans-serif;
+  --accent:#00A19E;
+  --ink:#0E1E1E;
+  --muted:#5F7070;
+  --panel:#F7F9FA;
+  --radius:12px;
+  --shadow:0 2px 8px rgba(0,0,0,0.06);
+  --font:"Inter","Space Grotesk",system-ui,sans-serif;
 }
 
-/* RESET + BASE */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:var(--font);
+  background:var(--panel);
+  color:var(--ink);
+  line-height:1.6;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
 }
+.wrap{max-width:720px;margin:0 auto;padding:1rem;}
 
-html, body {
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+.appbar{
+  background:#fff;
+  border-bottom:1px solid #E0E6E6;
+  box-shadow:var(--shadow);
 }
+.appbar .bar{
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:1100px;margin:0 auto;padding:.75rem 1rem;
+}
+.logo{height:36px;}
+.badge{height:36px;}
 
-body {
-  font-family: var(--font);
-  background: var(--panel);
-  color: var(--ink);
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  min-height: 100dvh;
+.hero{
+  background:var(--accent);
+  color:#fff;
+  border-radius:var(--radius);
+  padding:2.5rem 1.5rem;
+  margin:1.25rem 0;
+  position:relative;
+  overflow:hidden;
 }
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:url("https://assets.lucidseal.org/brand/bg/network-lines.svg");
+  background-size:cover;background-repeat:no-repeat;
+  opacity:0.15;
+}
+.hero h1{font-size:1.9rem;line-height:1.3;font-weight:700;margin-bottom:1rem;}
+.hero p{font-size:1.05rem;margin-bottom:.8rem;}
+.hero .lead{font-weight:600;}
+.hero .tagline{font-style:italic;margin-top:.5rem;opacity:.9;}
+@media(min-width:640px){.hero h1{font-size:2.3rem;}}
 
-.wrap {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 1rem;
+.accordion-item{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  margin:1rem 0;
+  overflow:hidden;
+  transition:all .3s ease-in-out;
 }
-
-/* APP BAR */
-.appbar {
-  background: #fff;
-  border-bottom: 1px solid #E0E6E6;
-  box-shadow: var(--shadow);
+.accordion-header{
+  display:flex;align-items:center;justify-content:space-between;
+  cursor:pointer;
+  padding:1rem 1.25rem;
+  background:#fff;
 }
-.appbar .bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0.75rem 1rem;
+.accordion-header:hover{background:#f3f6f6;}
+.accordion-header h2{font-size:1.1rem;font-weight:600;}
+.icon{
+  transition:transform .3s ease-in-out;
+  color:var(--accent);
 }
-.logo, .badge { height: 36px; }
-
-/* HERO */
-.hero {
-  background: var(--accent);
-  color: #fff;
-  border-radius: var(--radius);
-  padding: 4rem 1.5rem 3rem;
-  text-align: center;
-  margin: 1.25rem 0;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("https://assets.lucidseal.org/brand/bg/network-lines.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.15;
-}
-.hero h1 {
-  font-size: 2rem;
-  line-height: 1.3;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  position: relative;
-}
-.hero p {
-  position: relative;
-  font-size: 1.05rem;
-  margin-bottom: 0.8rem;
-}
-.hero .lead {
-  font-weight: 600;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-@media (min-width: 640px) {
-  .hero h1 { font-size: 2.3rem; }
-}
-
-/* INTRO + OVERVIEW */
-.intro, .overview {
-  background: #fff;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  margin: 2rem 0;
-  padding: 2rem 1.25rem;
-}
-.overview h2 {
-  color: var(--accent);
-  margin-top: 1.5rem;
-}
-.overview ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 1rem 0;
-}
-.overview li::before {
-  content: "• ";
-  color: var(--accent);
-  font-weight: bold;
-}
-.overview blockquote {
-  border-left: 3px solid var(--accent);
-  background: #f9fbfb;
-  margin-top: 2rem;
-  font-style: italic;
-  text-align: center;
-  padding: 1rem;
-}
-
-/* ACCORDION */
-.accordion-item {
-  background: #fff;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  margin: 1rem 0;
-  transition: all 0.3s ease-in-out;
-}
-.accordion-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  padding: 1rem 1.25rem;
-  background: #fff;
-}
-.accordion-header:hover { background: #f3f6f6; }
-.accordion-header h2 {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-.icon {
-  transition: transform 0.3s ease-in-out;
-  color: var(--accent);
-}
-.accordion-item.open .icon { transform: rotate(180deg); }
-
-.accordion-content {
-  overflow: hidden;
-  opacity: 0;
-  padding: 0 1.25rem;
-  transition: opacity 0.4s ease-in-out, padding 0.3s ease-in-out;
-  will-change: max-height;
+.accordion-item.open .icon{transform:rotate(180deg);}
+.accordion-content{
+  max-height:0;
+  overflow:hidden;
+  padding:0 1.25rem;
+  opacity:0;
+  transition:max-height .4s ease-in-out, opacity .4s ease-in-out, box-shadow .3s;
 }
 .accordion-item.open .accordion-content {
+  max-height: none;
   opacity: 1;
   padding: 0 1.25rem 1rem;
   box-shadow: inset 0 1px 0 #e6eaea;
-  max-height: none; /* critical fix for iPad */
 }
 
-/* GENERIC ELEMENTS */
-ul, ol { margin: 1rem 0 1rem 1.25rem; }
-li { margin-bottom: 0.5rem; }
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-}
-th, td {
-  border: 1px solid #E0E6E6;
-  padding: 0.5rem;
-  text-align: left;
-}
-th { background: #f3f6f6; font-weight: 600; }
-blockquote {
-  border-left: 3px solid var(--accent);
-  padding: 0.5rem 1rem;
-  background: #f9fbfb;
-  margin: 0.75rem 0;
-  font-style: italic;
-}
-
-/* FADE-IN ANIMATION */
-.fade-in {
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1.25rem;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+  transition: opacity .4s ease-in-out, padding .3s ease-in-out;
 }
 
-/* BACK TO TOP BUTTON */
-#topBtn {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+.accordion-item.open{transform:translateY(-2px);box-shadow:0 3px 12px rgba(0,0,0,0.07);}
+ul,ol{margin:1rem 0 1rem 1.25rem;}
+li{margin-bottom:.5rem;}
+table{width:100%;border-collapse:collapse;margin:1rem 0;}
+th,td{border:1px solid #E0E6E6;padding:.5rem;text-align:left;}
+th{background:#f3f6f6;font-weight:600;}
+blockquote{
+  border-left:3px solid var(--accent);
+  padding:.5rem 1rem;
+  background:#f9fbfb;
+  margin:.75rem 0;
+  font-style:italic;
 }
-#topBtn.show {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-#topBtn:hover { background: #008a88; }
 
-/* COMING SOON / NOTIFY SECTIONS */
-.coming-soon, .notify {
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+
+#topBtn{
+  position:fixed;bottom:24px;right:24px;
+  background:var(--accent);color:#fff;
+  border:none;border-radius:50%;
+  width:48px;height:48px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  opacity:0;pointer-events:none;
+  transition:opacity .4s ease,transform .4s ease;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+#topBtn.show{opacity:1;pointer-events:auto;transform:translateY(0);}
+#topBtn:hover{background:#008a88;}
+
+.coming-soon {
+  text-align: center;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem 1rem;
+  margin: 2rem 0;
+  font-size: 1rem;
+  color: var(--muted);
+}
+.coming-soon strong {
+  color: var(--accent);
+  display: block;
+  margin-top: 0.5rem;
+}
+
+
+footer{
+  text-align:center;
+  padding:2rem 1rem;
+  font-size:.85rem;
+  color:var(--muted);
+}
+.icon-btn{color:var(--muted);padding:.5rem;}
+.icon-btn:hover{color:var(--accent);}
+
+.notify {
   text-align: center;
   background: #fff;
   border-radius: var(--radius);
@@ -236,17 +162,14 @@ blockquote {
   padding: 2rem 1rem;
   margin: 3rem 0;
 }
-.coming-soon strong {
-  color: var(--accent);
-  display: block;
-  margin-top: 0.5rem;
-}
+
 .notify h3 {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--accent);
   margin-bottom: 0.5rem;
 }
+
 .notify-actions {
   display: flex;
   flex-direction: column;
@@ -254,6 +177,7 @@ blockquote {
   align-items: center;
   margin: 1rem 0;
 }
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -267,35 +191,80 @@ blockquote {
   font-weight: 500;
   transition: background 0.3s ease, transform 0.2s ease;
 }
+
 .btn:hover {
   background: #008f8c;
   transform: translateY(-2px);
 }
+
 .btn.outline {
   background: transparent;
   border: 1.5px solid var(--accent);
   color: var(--accent);
 }
+
 .btn.outline:hover {
   background: var(--accent);
   color: #fff;
 }
+
 .notify .note {
   font-size: 0.9rem;
   color: var(--muted);
   margin-top: 0.5rem;
   line-height: 1.5;
 }
-
-/* FOOTER */
-footer {
+.hero {
+  background: var(--accent);
+  color: #fff;
+  padding: 4rem 1.5rem 3rem;
   text-align: center;
-  padding: 2rem 1rem;
-  font-size: 0.85rem;
-  color: var(--muted);
+  border-radius: var(--radius);
 }
-.icon-btn {
-  color: var(--muted);
-  padding: 0.5rem;
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
-.icon-btn:hover { color: var(--accent); }
+
+.hero .lead {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.intro, .overview {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 2rem 0;
+  padding: 2rem 1.25rem;
+}
+
+.overview h2 {
+  color: var(--accent);
+  margin-top: 1.5rem;
+}
+
+.overview ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+
+.overview li::before {
+  content: "• ";
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.overview blockquote {
+  border-left: 3px solid var(--accent);
+  background: #f9fbfb;
+  margin-top: 2rem;
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
+}
