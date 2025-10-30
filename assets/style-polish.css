@@ -14,6 +14,9 @@
     --accent-a20: rgba(0,161,158,0.20);
     --accent-a25: rgba(0,161,158,0.25);
     --accent-a35: rgba(0,161,158,0.35);
+    --wrap: clamp(720px, 90vw, 1180px);
+    --space-5: 3rem
+    
   }
   
   /* ---------------------------------------------------------
@@ -38,8 +41,14 @@
     font-size: 1.05em;
     line-height: 1.75;
     margin-bottom: 1rem;
-    max-width: 90ch;
+    max-width: 100%;
   }
+
+  .section p {
+    max-width: 70ch;
+    margin-inline: auto;
+  }
+  
   
   h1, h2, h3 {
     letter-spacing: -0.02em;
@@ -74,6 +83,37 @@
     margin-inline: auto;
     padding-inline: clamp(1rem, 3vw, 2rem);
   }
+
+  /* ---------------------------------------------------------
+   Responsive Video Embeds
+   --------------------------------------------------------- */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 960px; /* Optional cap */
+  margin: 0 auto var(--space-5, 2rem);
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.video-wrapper {
+  background: var(--panel-2);
+  border: 1px solid var(--accent-a18);
+}
+
+
   
   /* ---------------------------------------------------------
      4. Buttons & Interactive Elements
@@ -130,3 +170,42 @@
   @keyframes fadeUp {
     to { opacity: 1; transform: none; }
   }
+
+  /* ---------------------------------------------------------
+   Closing Note / Outro Section
+   --------------------------------------------------------- */
+.closing-note {
+  text-align: center;
+  padding-block: clamp(4rem, 6vw, 7rem);
+  background: var(--panel);
+  border-top: 1px solid var(--accent-a18);
+}
+
+.closing-container {
+  max-width: 70ch;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+.closing-note h3 {
+  color: var(--accent-deep);
+  font-size: var(--fs-h2);
+  margin-bottom: 1.25rem;
+}
+
+.closing-note p {
+  text-align: center;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.closing-note .final-cta a {
+  font-weight: 600;
+  color: var(--accent-deep);
+  border-bottom: 1px solid var(--accent-a25);
+}
+
+.closing-note .final-cta a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
