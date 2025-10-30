@@ -26,7 +26,7 @@ li{margin-bottom:.5rem;}
   background:var(--accent);color:#fff;border-radius:var(--radius);
   padding:4rem 1.5rem 3rem;text-align:center;position:relative;overflow:hidden;
 }
-.hero::before{content:"";position:absolute;inset:0;background-image:url("https://assets.lucidseal.org/brand/bg/network-lines.svg");background-size:cover;background-repeat:no-repeat;opacity:0.15;}
+.hero::before{content:"";position:absolute;inset:0;background-image:url("https://staging.lucidseal.org/brand/bg/network-lines.svg");background-size:cover;background-repeat:no-repeat;opacity:0.15;}
 .hero h1{font-size:2rem;font-weight:700;margin-bottom:1rem;}
 .hero .lead{font-size:1.1rem;line-height:1.6;max-width:600px;margin:0 auto;}
 
