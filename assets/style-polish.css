@@ -209,3 +209,62 @@
   color: var(--accent);
   border-color: var(--accent);
 }
+
+
+/* -------------------------------------
+   Global Accordion Styling
+-------------------------------------- */
+details.accordion {
+  border-bottom: 1px solid var(--ring, rgba(0,0,0,0.1));
+  padding: var(--space-sm, 0.75rem) 0;
+}
+
+details.accordion summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  list-style: none;
+  position: relative;
+  outline: none;
+}
+
+details.accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+details.accordion summary::after {
+  content: "›";
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+  font-size: 1.25rem;
+  color: var(--accent, currentColor);
+}
+
+details.accordion[open] summary::after {
+  transform: rotate(90deg);
+}
+
+details.accordion .content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.35s ease;
+  will-change: max-height, opacity;
+}
+
+details.accordion[open] .content {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+
+details.accordion p {
+  margin: 0.5rem 0 0;
+  color: var(--ink, #222);
+  line-height: 1.6;
+}
